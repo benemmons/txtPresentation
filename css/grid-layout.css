@@ -1,0 +1,24 @@
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 0.4fr 2.1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1px;
+  grid-template-areas: "Properties Input";
+}
+
+.Properties {
+  display: grid;
+  grid-area: Properties;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.7fr 0.3fr;
+  grid-gap: 1px;
+  grid-template-areas: "InputParameters" "Download";
+}
+
+.InputParameters { grid-area: InputParameters; }
+
+.Download { grid-area: Download; }
+
+.Input { grid-area: Input; }
+
