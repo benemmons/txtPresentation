@@ -34,7 +34,7 @@ let SlidesList = Vue.extend({
   data: function () {
     return {
       slides
-    }
+    };
   },
   computed: {
     filteredSlides: function () {
@@ -48,7 +48,7 @@ let Slide = Vue.extend({
   data: function () {
     return {
       slide: findSlide(this.$route.params.slide_id)
-    }
+    };
   }
 });
 
@@ -60,7 +60,7 @@ let SlideAdd = Vue.extend({
         name: '',
         content: ''
       }
-    }
+    };
   },
   methods: {
     createSlide: function () {
@@ -89,7 +89,7 @@ let SlideEdit = Vue.extend({
         id: slide.id,
         name: slide.name,
         content: slide.content
-      }
+      };
       router.push('/');
     }
   }
