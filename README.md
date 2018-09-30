@@ -2,4 +2,4 @@
 
 ## A web-app to generate quick & easy slideshow presentations.
 
-![Screenshot](C:\Users\ben\Desktop\txtPresentation\txtPresentation\screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/benemmons/txtPresentation/master/screenshot.png)
