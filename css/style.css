@@ -1,0 +1,187 @@
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 1.8rem;
+  color: #111;
+  background: #f4f4f4;
+}
+
+h1,
+h2 {
+  margin: 0 0 1rem 0;
+  font-weight: normal;
+  text-align: center;
+}
+
+b {
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+  line-height: 2;
+}
+
+a {
+  color: #111;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #f04;
+  border-bottom: 0.1rem solid #f04;
+}
+
+hr {
+  width: 70%;
+  margin: 0 auto 2rem;
+  border: 0;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 2rem;
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  font: inherit;
+  font-size: 1.6rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  margin: 2rem 0 4rem 0;
+  border-spacing: 0;
+}
+
+table td,
+table th {
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.05);
+}
+
+table th {
+  padding: 2rem 1rem;
+  text-align: left;
+}
+
+table td {
+  padding: 1.8rem 1rem;
+  transition: all 0.3s ease;
+}
+
+table td .btn {
+  display: inline;
+}
+
+table tr:hover td {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin: 2rem 0 2rem 0;
+  padding: 1rem 2rem;
+  color: #111;
+  background: transparent;
+  border: 0.1rem solid #111;
+  outline: 0;
+  border-radius: 0.3rem;
+  font: inherit;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  transition: all 0.25s ease;
+}
+
+.btn:visited {
+  color: #111;
+}
+
+.btn:hover,
+.btn:focus {
+  border: 0.1rem solid #f04;
+  color: #f04;
+}
+
+.btn.btn-main {
+  border: 0;
+  color: #fff;
+  background: #44a;
+}
+
+.btn.btn-main:visited {
+  color: #fff;
+}
+
+.btn.btn-main:hover,
+.btn.btn-main:focus {
+  background: #f04;
+}
+
+.btn.btn-secondary {
+  border: 0;
+  color: #fff;
+  background: #f04;
+}
+
+.btn.btn-secondary:visited {
+  color: #fff;
+}
+
+.btn.btn-secondary:hover,
+.btn.btn-secondary:focus {
+  background: #44a;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#app {
+  width: 70rem;
+  margin: 4rem auto;
+  padding: 4rem;
+  border-radius: 0.3rem;
+  background: #fff;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1), 0 0 3rem rgba(0, 0, 0, 0.03);
+}
+
+#app section {
+  width: 100%;
+}
+
+@media only screen and (max-width: 48rem) {
+  #app {
+    width: 90%;
+  }
+}

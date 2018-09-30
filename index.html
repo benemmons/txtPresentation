@@ -1,33 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>txtPresentation</title>
+<head>
+  <meta charset="UTF-8">
+  <title>txtPresentation</title>
 
-    <meta name="description" content="A web-app to generate slideshow presentations rapidly by using simple text input.">
-    <meta name="author" content="LayoutIt!">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+  <link rel="stylesheet" href="css/style.css">
 
-    <link href="css/grid-layout.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+</head>
 
-  </head>
-  <body>
+<body>
 
-<div class="grid-container">
-  <div class="Properties">
-    <div class="area-overlap InputParameters">
-    </div>
-    <div class="Download">
-    </div>
-  </div>
-  <div class="Input">
-  </div>
-</div>
+  <main id="app" class="grid">
+    <h1><b>txt</b>Presentation</h1>
+    <hr>
+    <router-view></router-view>
+  </main>
 
-  </body>
+  <template id="slides-list">
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="slide in filteredSlides">
+            <td>
+              <router-link v-bind:to="{name: 'slide', params: {slide_id: slide.id}}">{{ slide.name }}</router-link>
+            </td>
+            <td>{{ slide.content }}</td>
+            <td>
+              <router-link v-bind:to="{name: 'slide-edit', params: {slide_id: slide.id}}">
+                Edit
+              </router-link>
+              <span> / </span>
+              <router-link v-bind:to="{name: 'slide-delete', params: {slide_id: slide.id}}">
+                Delete
+              </router-link>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-  <script src="js/taboverride.js"></script>
+      <router-link class="btn btn-main" v-bind:to="{path: '/slide-add'}">
+        Add Slide
+      </router-link>
+      <router-link class="btn btn-secondary" v-on:click.native="downloadSlides()" to="/">
+        Download
+      </router-link>
+    </section>
+  </template>
+
+  <template id="slide">
+    <section class="grid">
+      <h2>{{ slide.name }}</h2>
+      <p>
+        <b>Content:</b> {{ slide.content }}
+        <br>
+      </p>
+      <br>
+      <router-link v-bind:to="'/'">Back</router-link>
+    </section>
+  </template>
+
+  <template id="slide-add">
+    <section>
+      <h2>Add Slide</h2>
+      <form v-on:submit.prevent="createSlide">
+        <label>Title</label>
+        <input id="add-name" v-model="slide.name" required />
+        <label>Content</label>
+        <textarea id="add-content" rows="8" v-model="slide.content" required></textarea>
+        <button type="submit" class="btn btn-main">Create</button>
+        <router-link class="btn" v-bind:to="'/'">Cancel</router-link>
+      </form>
+    </section>
+  </template>
+
+  <template id="slide-edit">
+    <section>
+      <h2>Edit Slide</h2>
+      <form v-on:submit.prevent="updateSlide">
+        <label>Title</label>
+        <input v-model="slide.name" required />
+        <label>Content</label>
+        <textarea rows="10" v-model="slide.content"></textarea>
+        <button type="submit" class="btn btn-main">Update</button>
+        <router-link class="btn" v-bind:to="'/'">Cancel</router-link>
+      </form>
+    </section>
+  </template>
+
+  <template id="slide-delete">
+    <section>
+      <h2>Delete <b>{{ slide.name }}</b>?</h2>
+      <form v-on:submit.prevent="deleteSlide">
+        <center>
+          <p>Are You sure you want to delete
+            <b>{{ slide.name }}</b> from this presentation?
+          </p>
+        </center>
+        <button type="submit" class="btn btn-main">Delete</button>
+        <router-link class="btn" v-bind:to="'/'">Cancel</router-link>
+      </form>
+    </section>
+  </template>
+
+  <section id="scripts">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.1/vue-router.min.js'></script>
+    <script src="https://cdn.rawgit.com/gitbrent/PptxGenJS/8cb0150f/dist/pptxgen.bundle.js"></script>
+    <script src="js/index.js"></script>
+  </section>
+
+</body>
+
 </html>
