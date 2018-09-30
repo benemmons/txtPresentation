@@ -163,5 +163,21 @@ let vm = new Vue({
 // SlideShow Functionality
 
 function downloadSlides() {
+  var slideshow = new PptxGenJS();
+  slides.forEach(function (slideProperties) {
+    let slide = slideshow.addNewSlide();
+    slide.back = '151515';
+    slide.color = '28afb0';
+    slide.addText(slideProperties.name, {
+      x: 0.3,
+      y: 0.5,
+      h: 0.3,
+      lineSpacing: 9,
+      fontSize: 26,
+      fontFace: 'Georgia',
+      w: 13
+    });
 
+  });
+  slideshow.save('PptxGenJS-Demo');
 }
