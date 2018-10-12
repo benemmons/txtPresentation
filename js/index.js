@@ -4,6 +4,7 @@ let slides = [{
   id: 0,
   name: 'Dataless Network',
   content: 'Fist fighting'
+  //TODO: Remove this long string.
 },
 {
   id: 1,
@@ -167,26 +168,27 @@ var slideshow = new PptxGenJS();
 slides.forEach(function (slideProperties) {
   let slide = slideshow.addNewSlide();
   slide.back = '151515';
-  slide.color = '28afb0';
+  slide.color = 'fff';
   slide.addText(slideProperties.name, {
     x: 0.3,
-    y: 0.5,
-    h: 0.3,
-    lineSpacing: 9,
-    fontSize: 26,
-    fontFace: 'Georgia',
-    w: 13
-  });
-  slide.addText(slideProperties.content, {
-    x: 0.35,
     y: 1,
     h: 0.3,
     lineSpacing: 9,
-    fontSize: 18,
-    fontFace: 'Georgia',
+    fontSize: 28,
+    fontFace: 'Arial',
     w: 13
+  });
+  slide.addText(slideProperties.content, {
+    x: 0.45,
+    y: 1.29921,
+    h: 0.4566929,
+    lineSpacing: 24,
+    fontSize: 20,
+    fontFace: 'Arial',
+    w: 10
   });
 
 });
 slideshow.save('PptxGenJS-Demo');
 }
+
